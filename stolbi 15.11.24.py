@@ -1,6 +1,5 @@
 with (open('materials_b_import.csv', 'r', encoding='UTF-8') as f):
     data = f.readlines()
-    main = []
     for i in range(1,len(data)):
         #1 столб
         result = []
@@ -15,8 +14,8 @@ with (open('materials_b_import.csv', 'r', encoding='UTF-8') as f):
         image = temp[2].strip()
         if 'не указано' in image or 'нет' in image or "отсутствует" in image:
             image = "NULL"
+            result.append(image)
         if "\\materials\\" in image:
             image = image.replace('\\materials\\', '')
             result.append(image)
-            #result.append(main)
         print(result)
